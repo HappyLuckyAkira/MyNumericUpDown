@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <local:MyDecimalUpDown HorizontalAlignment="Left" Margin="33,95,0,0" VerticalAlignment="Top" Width="96"/>
+        <local:MyDecimalUpDown HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="96"/>
+        <local:MyDecimalUpDown HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button Content="Apply" HorizontalAlignment="Left" Margin="44,195,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
