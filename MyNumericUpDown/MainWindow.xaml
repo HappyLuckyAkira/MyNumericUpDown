@@ -4,9 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyNumericUpDown"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <i:Interaction.Behaviors>
+        <local:ValidationErrorBehavior HasViewError="{Binding HasViewError, Mode=OneWayToSource}"/>
+    </i:Interaction.Behaviors>
+
+
     <Grid>
-        
+        <local:MyDecimalUpDown 
+            Value="{Binding Input1, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+            HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="96">
+        <Validation.ErrorTemplate>
+            <ControlTemplate>
+                <Border BorderBrush="Blue" BorderThickness="3">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </ControlTemplate>
+        </Validation.ErrorTemplate>
+        </local:MyDecimalUpDown>
+        <local:MyDecimalUpDown 
+            Value="{Binding Input2, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+            HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="96">
+        <Validation.ErrorTemplate>
+            <ControlTemplate>
+                <Border BorderBrush="Blue" BorderThickness="3">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </ControlTemplate>
+        </Validation.ErrorTemplate>
+        </local:MyDecimalUpDown>
+        <Button Content="Apply" Command="{Binding Path=SampleCommand}" HorizontalAlignment="Left" Margin="44,195,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
