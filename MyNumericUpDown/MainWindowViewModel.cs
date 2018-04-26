@@ -11,7 +11,7 @@ namespace MyNumericUpDown
 
     class MainWindowViewModel: BindableBase
     {
-        private int input;
+        private int input1;
         private int input2;
         bool hasViewError;
         public bool HasViewError
@@ -39,16 +39,16 @@ namespace MyNumericUpDown
         }
         public DelegateCommand SampleCommand { get; private set; }
 
-        public int Input
+        public int Input1
         {
             get
             {
-                return this.input;
+                return this.input1;
             }
 
             set
             {
-                SetProperty(ref input, value);
+                SetProperty(ref input1, value);
             }
         }
 

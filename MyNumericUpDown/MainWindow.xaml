@@ -6,9 +6,33 @@
         xmlns:local="clr-namespace:MyNumericUpDown"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
-        <local:MyDecimalUpDown HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="96"/>
-        <local:MyDecimalUpDown HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="96"/>
+        <local:MyDecimalUpDown 
+            Value="{Binding Input1, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+            HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="96">
+        <Validation.ErrorTemplate>
+            <ControlTemplate>
+                <Border BorderBrush="Blue" BorderThickness="3">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </ControlTemplate>
+        </Validation.ErrorTemplate>
+        </local:MyDecimalUpDown>
+        <local:MyDecimalUpDown 
+            Value="{Binding Input2, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+            HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="96">
+        <Validation.ErrorTemplate>
+            <ControlTemplate>
+                <Border BorderBrush="Blue" BorderThickness="3">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </ControlTemplate>
+        </Validation.ErrorTemplate>
+        </local:MyDecimalUpDown>
         <Button Content="Apply" HorizontalAlignment="Left" Margin="44,195,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
