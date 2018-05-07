@@ -18,6 +18,7 @@
     <Grid>
         <local:MyDecimalUpDown 
             Value="{Binding Input1, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+            Maximum="100" Minimum="0"
             HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="96">
         <Validation.ErrorTemplate>
             <ControlTemplate>
@@ -29,6 +30,7 @@
         </local:MyDecimalUpDown>
         <local:MyDecimalUpDown 
             Value="{Binding Input2, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+            Maximum="100" Minimum="0"
             HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="96">
         <Validation.ErrorTemplate>
             <ControlTemplate>

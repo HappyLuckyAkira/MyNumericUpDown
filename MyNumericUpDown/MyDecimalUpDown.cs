@@ -11,10 +11,16 @@ namespace MyNumericUpDown
 {
     class MyDecimalUpDown:DecimalUpDown
     {
+        private void MyDecimalUpDown_InputValidationError(object sender, Xceed.Wpf.Toolkit.Core.Input.InputValidationErrorEventArgs e)
+        {
+            System.Windows.MessageBox.Show(e.Exception.ToString(), "error");
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
 
+            InputValidationError += MyDecimalUpDown_InputValidationError;
             DataObject.AddPastingHandler(this, textbox_PastingHandler);
             var textBox = this.Template.FindName("PART_TextBox", this) as WatermarkTextBox;
             if (null != textBox)
