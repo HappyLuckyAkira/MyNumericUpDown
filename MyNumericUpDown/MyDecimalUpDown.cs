@@ -14,6 +14,7 @@ namespace MyNumericUpDown
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
+            InputValidationError += MyDecimalUpDown_InputValidationError;
 
             DataObject.AddPastingHandler(this, textbox_PastingHandler);
             var textBox = this.Template.FindName("PART_TextBox", this) as WatermarkTextBox;
@@ -21,6 +22,17 @@ namespace MyNumericUpDown
             {
                 InputMethod.SetIsInputMethodSuspended(textBox, true);
             }
+        }
+
+        private void MyDecimalUpDown_InputValidationError(object sender, Xceed.Wpf.Toolkit.Core.Input.InputValidationErrorEventArgs e)
+        {
+            StringBuilder errmsgStringBuilder = new StringBuilder("入力値は");
+            errmsgStringBuilder.AppendFormat("{0:F2}", this.Minimum);
+            errmsgStringBuilder.Append("-");
+            errmsgStringBuilder.AppendFormat("{0:F2}", this.Maximum);
+            errmsgStringBuilder.Append("を入力してください");
+            //MessageBox("aaa");
+            System.Windows.MessageBox.Show(errmsgStringBuilder.ToString());
         }
 
         private static bool IsAllNumber(string text)
